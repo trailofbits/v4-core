@@ -16,6 +16,10 @@ abstract contract PropertiesAsserts {
     event AssertLteFail(string);
     event AssertLtFail(string);
 
+    event AssertPassed(string,uint256);
+
+
+
     function assertWithMsg(bool b, string memory reason) internal {
         if (!b) {
             emit AssertFail(reason);
@@ -110,6 +114,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertGteFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffUint256(a,b);
+            emit AssertPassed(reason, diff);
         }
     }
 
@@ -128,8 +135,13 @@ abstract contract PropertiesAsserts {
             );
             emit AssertGteFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffInt256(a,b);
+            emit AssertPassed(reason, diff);
         }
     }
+
+
 
     /// @notice asserts that a is greater than b. Violations are logged using reason.
     function assertGt(uint256 a, uint256 b, string memory reason) internal {
@@ -146,6 +158,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertGtFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffUint256(a,b);
+            emit AssertPassed(reason, diff-1);
         }
     }
 
@@ -164,6 +179,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertGtFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffInt256(a,b);
+            emit AssertPassed(reason, diff-1);
         }
     }
 
@@ -182,6 +200,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertLteFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffUint256(a,b);
+            emit AssertPassed(reason, diff);
         }
     }
 
@@ -200,6 +221,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertLteFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffInt256(a,b);
+            emit AssertPassed(reason, diff);
         }
     }
 
@@ -218,6 +242,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertLtFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffUint256(a,b);
+            emit AssertPassed(reason, diff-1);
         }
     }
 
@@ -236,6 +263,9 @@ abstract contract PropertiesAsserts {
             );
             emit AssertLtFail(string(assertMsg));
             assert(false);
+        } else {
+            uint256 diff = _calcDiffInt256(a,b);
+            emit AssertPassed(reason, diff);
         }
     }
 
@@ -440,6 +470,34 @@ abstract contract PropertiesAsserts {
             return value;
         }
         return a;
+    }
+
+    function _calcDiffInt256(int256 a, int256 b) internal returns (uint256) {
+        if (b > a) {
+            int256 tmp = a;
+            a = b;
+            b = tmp;
+        }
+        uint256 trueDiff;
+        unchecked {
+            int256 diff = a - b;
+            if(diff >= 0) {
+                trueDiff = uint256(diff);
+            } else {
+                a -= type(int256).max;
+                trueDiff = uint256(a - b) + uint256(type(int256).max);
+            }
+        }
+        return trueDiff;
+    }
+
+    function _calcDiffUint256(uint256 a, uint256 b) internal returns (uint256) {
+        if (b > a) {
+            uint256 tmp = a;
+            a = b;
+            b = tmp;
+        }
+        return a - b;
     }
 }
 

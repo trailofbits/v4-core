@@ -115,8 +115,8 @@ abstract contract PropertiesAsserts {
             emit AssertGteFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffUint256(a,b);
-            emit AssertPassed(reason, diff);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance);
         }
     }
 
@@ -136,8 +136,8 @@ abstract contract PropertiesAsserts {
             emit AssertGteFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffInt256(a,b);
-            emit AssertPassed(reason, diff);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance);
         }
     }
 
@@ -159,8 +159,8 @@ abstract contract PropertiesAsserts {
             emit AssertGtFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffUint256(a,b);
-            emit AssertPassed(reason, diff-1);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance-1);
         }
     }
 
@@ -180,8 +180,8 @@ abstract contract PropertiesAsserts {
             emit AssertGtFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffInt256(a,b);
-            emit AssertPassed(reason, diff-1);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance-1);
         }
     }
 
@@ -201,8 +201,8 @@ abstract contract PropertiesAsserts {
             emit AssertLteFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffUint256(a,b);
-            emit AssertPassed(reason, diff);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance);
         }
     }
 
@@ -222,8 +222,8 @@ abstract contract PropertiesAsserts {
             emit AssertLteFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffInt256(a,b);
-            emit AssertPassed(reason, diff);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance);
         }
     }
 
@@ -243,8 +243,8 @@ abstract contract PropertiesAsserts {
             emit AssertLtFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffUint256(a,b);
-            emit AssertPassed(reason, diff-1);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance-1);
         }
     }
 
@@ -264,8 +264,8 @@ abstract contract PropertiesAsserts {
             emit AssertLtFail(string(assertMsg));
             assert(false);
         } else {
-            uint256 diff = _calcDiffInt256(a,b);
-            emit AssertPassed(reason, diff);
+            uint256 distance = calcDistance(a,b);
+            emit AssertPassed(reason, distance);
         }
     }
 
@@ -472,26 +472,69 @@ abstract contract PropertiesAsserts {
         return a;
     }
 
-    function _calcDiffInt256(int256 a, int256 b) internal returns (uint256) {
+    /// @notice returns "true" if adding the two unsigned ints would result in an overflow
+    function doesSumOverflow(uint256 a, uint256 b) internal returns (bool) {
+        unchecked {
+            if( a + b < a ){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    /// @notice returns "true" if adding the two signed ints would result in an overflow
+    function doesSumOverflow(int256 a, int256 b) internal returns (bool) {
+        if (a < 0 || b < 0) {
+            return false;
+        } else {
+            return doesSumOverflow(uint256(a), uint256(b));
+        }
+    }
+
+    /// @notice returns "true" if adding the two signed ints would result in an underflow
+    function doesSumUnderflow(int256 a, int256 b) internal returns (bool) {
+        if (a > 0 || b > 0) {
+            return false;
+        } else {
+            unchecked {
+                int256 sum = a + b;
+                if (sum > a) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+
+    /// @notice returns "true" if adding the two signed ints would result in an overflow or underflow
+    function doesSumOverUnderflow(int256 a, int256 b) internal returns (bool) {
+        return doesSumOverflow(a,b) || doesSumUnderflow(a,b);
+    }
+
+    /// @notice Calculates the numeric distance between two integers.
+    function calcDistance(int256 a, int256 b) internal returns (uint256) {
         if (b > a) {
             int256 tmp = a;
             a = b;
             b = tmp;
         }
-        uint256 trueDiff;
+        uint256 trueDistance;
         unchecked {
-            int256 diff = a - b;
-            if(diff >= 0) {
-                trueDiff = uint256(diff);
+            int256 distance = a - b;
+            if(distance >= 0) {
+                trueDistance = uint256(distance);
             } else {
                 a -= type(int256).max;
-                trueDiff = uint256(a - b) + uint256(type(int256).max);
+                trueDistance = uint256(a - b) + uint256(type(int256).max);
             }
         }
-        return trueDiff;
+        return trueDistance;
     }
 
-    function _calcDiffUint256(uint256 a, uint256 b) internal returns (uint256) {
+    /// @notice Calculates the numeric distance between two unsigned integers.
+    function calcDistance(uint256 a, uint256 b) internal returns (uint256) {
         if (b > a) {
             uint256 tmp = a;
             a = b;

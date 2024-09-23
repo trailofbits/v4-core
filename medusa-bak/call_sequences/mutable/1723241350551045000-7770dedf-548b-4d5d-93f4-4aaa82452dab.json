@@ -1,0 +1,75 @@
+[
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 0,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x70821a37000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000007a4fc7",
+   "dataAbiValues": {
+    "methodSignature": "addSetNewProtocolFee(uint8,uint24)",
+    "inputValues": [
+     "100",
+     "8015815"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 236,
+  "blockTimestampDelay": 333
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 1,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x70821a37000000000000000000000000000000000000000000000000000000000000005a0000000000000000000000000000000000000000000000000000000000dc7228",
+   "dataAbiValues": {
+    "methodSignature": "addSetNewProtocolFee(uint8,uint24)",
+    "inputValues": [
+     "90",
+     "14447144"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 23788,
+  "blockTimestampDelay": 563701
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 2,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x75bc999a00000000000000000000000000000000000000000000000000000000000000a8000000000000000000000000000000000000000000000000000000000000002d00000000000000000000000000000000000000000000000000000000003b78ff",
+   "dataAbiValues": {
+    "methodSignature": "addTargetedPoolReadyToOverflow(uint8,uint8,uint24)",
+    "inputValues": [
+     "168",
+     "45",
+     "3897599"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 21325,
+  "blockTimestampDelay": 512331
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 0,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x0001d9a400000000000000000000000000000000000000000000000000000000000000df",
+   "dataAbiValues": {
+    "methodSignature": "addCollectProtocolFees(uint8)",
+    "inputValues": [
+     "223"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 1005,
+  "blockTimestampDelay": 214215
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 1,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x9b2a085a000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000003635cb945bb17b4f97",
+   "dataAbiValues": {
+    "methodSignature": "addClear(uint8,uint256)",
+    "inputValues": [
+     "6",
+     "1000000535006138814359"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 34045,
+  "blockTimestampDelay": 435219
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 2,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0xde0aedaa000000000000000000000000000000000000000000000000000000000000001300000000000000000000000000000000000000000032c528d1b99f501fd7bcb00000000000000000000000000000000000000000000000000000000000000000",
+   "dataAbiValues": {
+    "methodSignature": "addSwap(uint8,int256,bool)",
+    "inputValues": [
+     "19",
+     "61377350159904918323313840",
+     false
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 0,
+  "blockTimestampDelay": 0
+ }
+]

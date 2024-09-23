@@ -1,0 +1,78 @@
+[
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 0,
+   "value": "0x0",
+   "gasLimit": 125000000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x134c2a9300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000096",
+   "dataAbiValues": {
+    "methodSignature": "updatePoolDynamicLpFee(uint8,uint24)",
+    "inputValues": [
+     "0",
+     "150"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 31,
+  "blockTimestampDelay": 1323
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 1,
+   "value": "0x0",
+   "gasLimit": 125000000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0xc8f7e46100000000000000000000000000000000000000000000000000000000000000390000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000666600000000000000000000000069d9c4656868537a5235ad412c5e963d5781a9df",
+   "dataAbiValues": {
+    "methodSignature": "addTransferFrom(uint8,uint256,address,address)",
+    "inputValues": [
+     "57",
+     "0",
+     "0x0000000000000000000000000000000000006666",
+     "0x69D9C4656868537A5235AD412c5E963d5781a9dF"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 21,
+  "blockTimestampDelay": 107
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 2,
+   "value": "0x0",
+   "gasLimit": 125000000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0xa903d3fc0000000000000000000000000000000000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000004a0000000000000000000000000000000000000000000000000000000000e12b60000000000000000000000000000000000000000000000000000005725869bd6c",
+   "dataAbiValues": {
+    "methodSignature": "addTargetedPool(uint8,uint8,uint24,int128)",
+    "inputValues": [
+     "17",
+     "74",
+     "14756704",
+     "5988667735404"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 48435,
+  "blockTimestampDelay": 323184
+ }
+]

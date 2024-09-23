@@ -1,9 +1,9 @@
 [profile.default]
 optimizer_runs = 44444444
-via_ir = true
+via_ir =false
 ffi = true
 fs_permissions = [{ access = "read-write", path = ".forge-snapshots/"}, { access = "read", path = "./out"}, {access = "read", path = "./test/bin"}]
-solc = "0.8.26"
+solc = "0.8.24"
 evm_version = "cancun"
 
 [profile.default.fuzz]

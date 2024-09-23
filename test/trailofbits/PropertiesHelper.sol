@@ -6,7 +6,7 @@ abstract contract PropertiesAsserts {
     event LogInt256(string, int256);
     event LogAddress(string, address);
     event LogString(string);
-    event LogBytes(bytes);
+    event LogBytes(string, bytes);
 
     event AssertFail(string);
     event AssertEqFail(string);
@@ -18,7 +18,7 @@ abstract contract PropertiesAsserts {
 
     event AssertPassed(string,uint256);
 
-
+    string logPrefix;
 
     function assertWithMsg(bool b, string memory reason) internal {
         if (!b) {

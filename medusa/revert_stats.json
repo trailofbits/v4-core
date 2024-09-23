@@ -1,0 +1,1027 @@
+{
+    "function_artifacts": [
+        {
+            "name": "addBurn",
+            "total_calls": 7,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addBurnAndRunActions",
+            "total_calls": 14632,
+            "total_reverts": 14446,
+            "revert_pct": 0.9872881355932204,
+            "prev_revert_pct": 0.9847699287103046,
+            "revert_reasons": [
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 62,
+                    "pct_attributed": 0.004291845493562232,
+                    "prev_pct_attributed": 0.006252056597564989
+                },
+                {
+                    "reason": "MustClearExactPositiveDelta",
+                    "total": 1,
+                    "pct_attributed": 0.00006922331441229406,
+                    "prev_pct_attributed": 0.0003290556103981573
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 231,
+                    "pct_attributed": 0.01599058562923993,
+                    "prev_pct_attributed": 0.016452780519907863
+                },
+                {
+                    "reason": "NonZeroNativeValue",
+                    "total": 1,
+                    "pct_attributed": 0.00006922331441229406,
+                    "prev_pct_attributed": 0.0003290556103981573
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 61,
+                    "pct_attributed": 0.004222622179149938,
+                    "prev_pct_attributed": 0.0042777229351760445
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 341,
+                    "pct_attributed": 0.023605150214592276,
+                    "prev_pct_attributed": 0.017439947351102335
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 8894,
+                    "pct_attributed": 0.6156721583829434,
+                    "prev_pct_attributed": 0.6110562685093781
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 15,
+                    "pct_attributed": 0.0010383497161844109,
+                    "prev_pct_attributed": 0.0009871668311944718
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 642,
+                    "pct_attributed": 0.04444136785269279,
+                    "prev_pct_attributed": 0.05363606449489964
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 534,
+                    "pct_attributed": 0.03696524989616503,
+                    "prev_pct_attributed": 0.0361961171437973
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 5,
+                    "pct_attributed": 0.0003461165720614703,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 3625,
+                    "pct_attributed": 0.25093451474456596,
+                    "prev_pct_attributed": 0.2500822639025995
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 34,
+                    "pct_attributed": 0.002353592690017998,
+                    "prev_pct_attributed": 0.0029615004935834156
+                }
+            ]
+        },
+        {
+            "name": "addClear",
+            "total_calls": 17,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addCollectProtocolFees",
+            "total_calls": 85,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addDonate",
+            "total_calls": 14777,
+            "total_reverts": 8826,
+            "revert_pct": 0.5972795560668607,
+            "prev_revert_pct": 0.5947107438016529,
+            "revert_reasons": [
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8826,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addDonateAndSettle",
+            "total_calls": 14715,
+            "total_reverts": 14648,
+            "revert_pct": 0.9954468229697587,
+            "prev_revert_pct": 0.9889729048519219,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 3,
+                    "pct_attributed": 0.00020480611687602403,
+                    "prev_pct_attributed": 0.000955718381650207
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 66,
+                    "pct_attributed": 0.004505734571272528,
+                    "prev_pct_attributed": 0.004460019114367633
+                },
+                {
+                    "reason": "InvalidFeeForExactOut",
+                    "total": 1,
+                    "pct_attributed": 0.00006826870562534134,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 1672,
+                    "pct_attributed": 0.11414527580557073,
+                    "prev_pct_attributed": 0.10672188595093979
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 64,
+                    "pct_attributed": 0.004369197160021846,
+                    "prev_pct_attributed": 0.005097164702134438
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 335,
+                    "pct_attributed": 0.02287001638448935,
+                    "prev_pct_attributed": 0.01879579483912074
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 1116,
+                    "pct_attributed": 0.07618787547788095,
+                    "prev_pct_attributed": 0.07773176170755018
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 8,
+                    "pct_attributed": 0.0005461496450027307,
+                    "prev_pct_attributed": 0.0012742911755336094
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 674,
+                    "pct_attributed": 0.046013107591480064,
+                    "prev_pct_attributed": 0.053838802166295
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 520,
+                    "pct_attributed": 0.0354997269251775,
+                    "prev_pct_attributed": 0.03313157056387384
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 2,
+                    "pct_attributed": 0.00013653741125068268,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 10165,
+                    "pct_attributed": 0.6939513926815948,
+                    "prev_pct_attributed": 0.6973558458107677
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 22,
+                    "pct_attributed": 0.0015019115237575095,
+                    "prev_pct_attributed": 0.0006371455877668047
+                }
+            ]
+        },
+        {
+            "name": "addInitialize",
+            "total_calls": 14652,
+            "total_reverts": 2632,
+            "revert_pct": 0.17963417963417963,
+            "prev_revert_pct": 0.17358613926119648,
+            "revert_reasons": [
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 2632,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addInitializeAndAddLiquidity",
+            "total_calls": 24759,
+            "total_reverts": 2795,
+            "revert_pct": 0.11288824265923503,
+            "prev_revert_pct": 0.17907124681933842,
+            "revert_reasons": [
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 2795,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addInitializeAndAddLiquidityAndSettle",
+            "total_calls": 14855,
+            "total_reverts": 14822,
+            "revert_pct": 0.9977785257489061,
+            "prev_revert_pct": 0.9971724787935909,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 3,
+                    "pct_attributed": 0.00020240183510997166,
+                    "prev_pct_attributed": 0.000945179584120983
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 311,
+                    "pct_attributed": 0.020982323573067063,
+                    "prev_pct_attributed": 0.020793950850661626
+                },
+                {
+                    "reason": "CheckParameters",
+                    "total": 1,
+                    "pct_attributed": 0.00006746727836999056,
+                    "prev_pct_attributed": 0.000315059861373661
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 187,
+                    "pct_attributed": 0.012616381055188234,
+                    "prev_pct_attributed": 0.012287334593572778
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 39,
+                    "pct_attributed": 0.0026312238564296314,
+                    "prev_pct_attributed": 0.003465658475110271
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 246,
+                    "pct_attributed": 0.016596950479017675,
+                    "prev_pct_attributed": 0.019533711405166982
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 142,
+                    "pct_attributed": 0.009580353528538659,
+                    "prev_pct_attributed": 0.009766855702583491
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 8,
+                    "pct_attributed": 0.0005397382269599245,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 3230,
+                    "pct_attributed": 0.2179193091350695,
+                    "prev_pct_attributed": 0.20951480781348455
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 2572,
+                    "pct_attributed": 0.1735258399676157,
+                    "prev_pct_attributed": 0.1786389413988658
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 14,
+                    "pct_attributed": 0.0009445418971798677,
+                    "prev_pct_attributed": 0.001260239445494644
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 5512,
+                    "pct_attributed": 0.37187963837538796,
+                    "prev_pct_attributed": 0.36641461877756776
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 2557,
+                    "pct_attributed": 0.17251383079206584,
+                    "prev_pct_attributed": 0.1770636420919975
+                }
+            ]
+        },
+        {
+            "name": "addInitializeUnconstrained",
+            "total_calls": 14675,
+            "total_reverts": 2615,
+            "revert_pct": 0.17819420783645656,
+            "prev_revert_pct": 0.16155352480417753,
+            "revert_reasons": [
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 2615,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addMint",
+            "total_calls": 10,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addModifyPosition",
+            "total_calls": 14685,
+            "total_reverts": 8827,
+            "revert_pct": 0.6010895471569628,
+            "prev_revert_pct": 0.5937399161019684,
+            "revert_reasons": [
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8827,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addModifyPositionAndRunActions",
+            "total_calls": 135,
+            "total_reverts": 85,
+            "revert_pct": 0.6296296296296297,
+            "prev_revert_pct": 0.6142857142857143,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 2,
+                    "pct_attributed": 0.023529411764705882,
+                    "prev_pct_attributed": 0.023255813953488372
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 1,
+                    "pct_attributed": 0.011764705882352941,
+                    "prev_pct_attributed": 0.011627906976744186
+                },
+                {
+                    "reason": "MustClearExactPositiveDelta",
+                    "total": 1,
+                    "pct_attributed": 0.011764705882352941,
+                    "prev_pct_attributed": 0.011627906976744186
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 2,
+                    "pct_attributed": 0.023529411764705882,
+                    "prev_pct_attributed": 0.023255813953488372
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 9,
+                    "pct_attributed": 0.10588235294117647,
+                    "prev_pct_attributed": 0.10465116279069768
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 2,
+                    "pct_attributed": 0.023529411764705882,
+                    "prev_pct_attributed": 0.023255813953488372
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 1,
+                    "pct_attributed": 0.011764705882352941,
+                    "prev_pct_attributed": 0.011627906976744186
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 67,
+                    "pct_attributed": 0.788235294117647,
+                    "prev_pct_attributed": 0.7790697674418605
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.011627906976744186
+                }
+            ]
+        },
+        {
+            "name": "addSetNewProtocolFee",
+            "total_calls": 14680,
+            "total_reverts": 8866,
+            "revert_pct": 0.6039509536784741,
+            "prev_revert_pct": 0.6057382333978079,
+            "revert_reasons": [
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8866,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addSettle",
+            "total_calls": 11303,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addSettleFor",
+            "total_calls": 21,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addSettleNative",
+            "total_calls": 12,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addShortcutSettle",
+            "total_calls": 15070,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addSwap",
+            "total_calls": 14396,
+            "total_reverts": 8747,
+            "revert_pct": 0.6075993331480967,
+            "prev_revert_pct": 0.6161417322834646,
+            "revert_reasons": [
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8747,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addSwapAndRunActions",
+            "total_calls": 14956,
+            "total_reverts": 12833,
+            "revert_pct": 0.8580502808237497,
+            "prev_revert_pct": 0.8475210477081384,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 10,
+                    "pct_attributed": 0.0007792410192472532,
+                    "prev_pct_attributed": 0.003679175864606328
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 61,
+                    "pct_attributed": 0.004753370217408244,
+                    "prev_pct_attributed": 0.00772626931567329
+                },
+                {
+                    "reason": "InvalidFeeForExactOut",
+                    "total": 6,
+                    "pct_attributed": 0.0004675446115483519,
+                    "prev_pct_attributed": 0.001839587932303164
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 257,
+                    "pct_attributed": 0.020026494194654406,
+                    "prev_pct_attributed": 0.01692420897718911
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 369,
+                    "pct_attributed": 0.02875399361022364,
+                    "prev_pct_attributed": 0.029433406916850625
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 318,
+                    "pct_attributed": 0.02477986441206265,
+                    "prev_pct_attributed": 0.025386313465783666
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 171,
+                    "pct_attributed": 0.01332502142912803,
+                    "prev_pct_attributed": 0.014716703458425313
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 41,
+                    "pct_attributed": 0.003194888178913738,
+                    "prev_pct_attributed": 0.003679175864606328
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 690,
+                    "pct_attributed": 0.05376763032806047,
+                    "prev_pct_attributed": 0.051508462104488596
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 508,
+                    "pct_attributed": 0.03958544377776046,
+                    "prev_pct_attributed": 0.04194260485651214
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 3,
+                    "pct_attributed": 0.00023377230577417596,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 10320,
+                    "pct_attributed": 0.8041767318631653,
+                    "prev_pct_attributed": 0.7954378219278881
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 79,
+                    "pct_attributed": 0.0061560040520533,
+                    "prev_pct_attributed": 0.00772626931567329
+                }
+            ]
+        },
+        {
+            "name": "addSwapInSwapOut",
+            "total_calls": 14915,
+            "total_reverts": 8998,
+            "revert_pct": 0.6032852832718739,
+            "prev_revert_pct": 0.592909148464704,
+            "revert_reasons": [
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8998,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "addSync",
+            "total_calls": 106,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addTake",
+            "total_calls": 71,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "addTargetedPool",
+            "total_calls": 42701,
+            "total_reverts": 27721,
+            "revert_pct": 0.6491885435938268,
+            "prev_revert_pct": 0.7778501628664495,
+            "revert_reasons": [
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.0347571189279732
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.018006700167504188
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.005443886097152429
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.020100502512562814
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.011725293132328308
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.0008375209380234506
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.5301507537688442
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.04271356783919598
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 6,
+                    "pct_attributed": 0.0002164424082825295,
+                    "prev_pct_attributed": 0.10217755443886097
+                },
+                {
+                    "reason": "panic: assertion failed",
+                    "total": 27715,
+                    "pct_attributed": 0.9997835575917174,
+                    "prev_pct_attributed": null
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 0,
+                    "pct_attributed": 0,
+                    "prev_pct_attributed": 0.23408710217755443
+                }
+            ]
+        },
+        {
+            "name": "addTargetedPoolReadyToOverflow",
+            "total_calls": 20767,
+            "total_reverts": 13956,
+            "revert_pct": 0.6720277363124187,
+            "prev_revert_pct": 0.5332708528584817,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 3,
+                    "pct_attributed": 0.00021496130696474635,
+                    "prev_pct_attributed": 0.0029291154071470417
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 84,
+                    "pct_attributed": 0.0060189165950128975,
+                    "prev_pct_attributed": 0.007029876977152899
+                },
+                {
+                    "reason": "CheckParameters",
+                    "total": 1,
+                    "pct_attributed": 0.00007165376898824878,
+                    "prev_pct_attributed": 0.0005858230814294083
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 518,
+                    "pct_attributed": 0.03711665233591287,
+                    "prev_pct_attributed": 0.029291154071470416
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 69,
+                    "pct_attributed": 0.004944110060189166,
+                    "prev_pct_attributed": 0.005272407732864675
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 355,
+                    "pct_attributed": 0.02543708799082832,
+                    "prev_pct_attributed": 0.04159343878148799
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 166,
+                    "pct_attributed": 0.011894525652049298,
+                    "prev_pct_attributed": 0.01757469244288225
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 9,
+                    "pct_attributed": 0.0006448839208942391,
+                    "prev_pct_attributed": 0.0011716461628588166
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 680,
+                    "pct_attributed": 0.04872456291200917,
+                    "prev_pct_attributed": 0.06736965436438196
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 547,
+                    "pct_attributed": 0.039194611636572084,
+                    "prev_pct_attributed": 0.04803749267721148
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 2,
+                    "pct_attributed": 0.00014330753797649757,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 2791,
+                    "pct_attributed": 0.19998566924620234,
+                    "prev_pct_attributed": 0.1271236086701816
+                },
+                {
+                    "reason": "panic: assertion failed",
+                    "total": 5891,
+                    "pct_attributed": 0.4221123531097736,
+                    "prev_pct_attributed": null
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 2840,
+                    "pct_attributed": 0.20349670392662655,
+                    "prev_pct_attributed": 0.6520210896309314
+                }
+            ]
+        },
+        {
+            "name": "addTransferFrom",
+            "total_calls": 74,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "prepareNewLock",
+            "total_calls": 23,
+            "total_reverts": 0,
+            "revert_pct": 0,
+            "prev_revert_pct": 0,
+            "revert_reasons": []
+        },
+        {
+            "name": "routerCallback",
+            "total_calls": 14741,
+            "total_reverts": 14741,
+            "revert_pct": 1,
+            "prev_revert_pct": 1,
+            "revert_reasons": [
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 14741,
+                    "pct_attributed": 1,
+                    "prev_pct_attributed": 1
+                }
+            ]
+        },
+        {
+            "name": "runActions",
+            "total_calls": 14881,
+            "total_reverts": 11427,
+            "revert_pct": 0.7678919427457832,
+            "prev_revert_pct": 0.7706966572945955,
+            "revert_reasons": [
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 94,
+                    "pct_attributed": 0.008226131093025292,
+                    "prev_pct_attributed": 0.006890960680989056
+                },
+                {
+                    "reason": "CheckParameters",
+                    "total": 7856,
+                    "pct_attributed": 0.6874945304979435,
+                    "prev_pct_attributed": 0.6732873935954601
+                },
+                {
+                    "reason": "CurrencyNotSettled",
+                    "total": 82,
+                    "pct_attributed": 0.007175986698170998,
+                    "prev_pct_attributed": 0.006080259424402107
+                },
+                {
+                    "reason": "InvalidFeeForExactOut",
+                    "total": 1,
+                    "pct_attributed": 0.00008751203290452437,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 227,
+                    "pct_attributed": 0.019865231469327033,
+                    "prev_pct_attributed": 0.020672882042967168
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 80,
+                    "pct_attributed": 0.00700096263236195,
+                    "prev_pct_attributed": 0.005674908796108634
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 342,
+                    "pct_attributed": 0.029929115253347335,
+                    "prev_pct_attributed": 0.028779894608836645
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 183,
+                    "pct_attributed": 0.01601470202152796,
+                    "prev_pct_attributed": 0.01783542764491285
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 5,
+                    "pct_attributed": 0.00043756016452262185,
+                    "prev_pct_attributed": 0.0012160518848804217
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 691,
+                    "pct_attributed": 0.06047081473702634,
+                    "prev_pct_attributed": 0.07012565869477097
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 557,
+                    "pct_attributed": 0.04874420232782008,
+                    "prev_pct_attributed": 0.0510741791649777
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 3,
+                    "pct_attributed": 0.00026253609871357313,
+                    "prev_pct_attributed": 0
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 1278,
+                    "pct_attributed": 0.11184037805198214,
+                    "prev_pct_attributed": 0.11511957843534658
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 28,
+                    "pct_attributed": 0.0024503369213266825,
+                    "prev_pct_attributed": 0.0032428050263477908
+                }
+            ]
+        },
+        {
+            "name": "runActionsWithShortcutSettle",
+            "total_calls": 39017,
+            "total_reverts": 4076,
+            "revert_pct": 0.10446728349181127,
+            "prev_revert_pct": 0.10314664074839024,
+            "revert_reasons": [
+                {
+                    "reason": "AlreadySynced",
+                    "total": 2,
+                    "pct_attributed": 0.0004906771344455348,
+                    "prev_pct_attributed": 0.002355712603062426
+                },
+                {
+                    "reason": "CannotUpdateEmptyPosition",
+                    "total": 80,
+                    "pct_attributed": 0.019627085377821395,
+                    "prev_pct_attributed": 0.014134275618374558
+                },
+                {
+                    "reason": "CheckParameters",
+                    "total": 1,
+                    "pct_attributed": 0.0002453385672227674,
+                    "prev_pct_attributed": 0.001177856301531213
+                },
+                {
+                    "reason": "ERC20TransferFailed",
+                    "total": 1,
+                    "pct_attributed": 0.0002453385672227674,
+                    "prev_pct_attributed": 0.001177856301531213
+                },
+                {
+                    "reason": "NativeTransferFailed",
+                    "total": 1,
+                    "pct_attributed": 0.0002453385672227674,
+                    "prev_pct_attributed": 0.001177856301531213
+                },
+                {
+                    "reason": "NoLiquidityToReceiveFees",
+                    "total": 300,
+                    "pct_attributed": 0.07360157016683022,
+                    "prev_pct_attributed": 0.06713780918727916
+                },
+                {
+                    "reason": "PriceLimitAlreadyExceeded",
+                    "total": 93,
+                    "pct_attributed": 0.02281648675171737,
+                    "prev_pct_attributed": 0.028268551236749116
+                },
+                {
+                    "reason": "ProtocolFeeTooLarge",
+                    "total": 434,
+                    "pct_attributed": 0.10647693817468105,
+                    "prev_pct_attributed": 0.08480565371024736
+                },
+                {
+                    "reason": "SafeCastOverflow",
+                    "total": 228,
+                    "pct_attributed": 0.05593719332679097,
+                    "prev_pct_attributed": 0.05418138987043581
+                },
+                {
+                    "reason": "SwapAmountCannotBeZero",
+                    "total": 15,
+                    "pct_attributed": 0.0036800785083415115,
+                    "prev_pct_attributed": 0.002355712603062426
+                },
+                {
+                    "reason": "TickLiquidityOverflow",
+                    "total": 826,
+                    "pct_attributed": 0.2026496565260059,
+                    "prev_pct_attributed": 0.20730270906949352
+                },
+                {
+                    "reason": "TickMisaligned",
+                    "total": 590,
+                    "pct_attributed": 0.14474975466143278,
+                    "prev_pct_attributed": 0.1330977620730271
+                },
+                {
+                    "reason": "TicksMisordered",
+                    "total": 4,
+                    "pct_attributed": 0.0009813542688910696,
+                    "prev_pct_attributed": 0.001177856301531213
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 1460,
+                    "pct_attributed": 0.35819430814524045,
+                    "prev_pct_attributed": 0.38869257950530034
+                },
+                {
+                    "reason": "panic: compiler inserted panic",
+                    "total": 41,
+                    "pct_attributed": 0.010058881256133464,
+                    "prev_pct_attributed": 0.012956419316843345
+                }
+            ]
+        },
+        {
+            "name": "updatePoolDynamicLpFee",
+            "total_calls": 14701,
+            "total_reverts": 14701,
+            "revert_pct": 1,
+            "prev_revert_pct": 1,
+            "revert_reasons": [
+                {
+                    "reason": "UnauthorizedDynamicLPFeeUpdate",
+                    "total": 5819,
+                    "pct_attributed": 0.3958234133732399,
+                    "prev_pct_attributed": 0.41110766366739065
+                },
+                {
+                    "reason": "panic: arithmetic underflow",
+                    "total": 8882,
+                    "pct_attributed": 0.6041765866267601,
+                    "prev_pct_attributed": 0.5888923363326094
+                }
+            ]
+        }
+    ]
+}

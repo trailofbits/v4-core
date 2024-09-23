@@ -39,7 +39,7 @@ contract InitializeActionProps is ActionFuzzBase {
         // todo: add revert catcher from e2e harness
         try manager.initialize(k, uint160(initialPrice), new bytes(0)) {          
         } catch (bytes memory b) {
-            emit LogBytes(b);
+            emit LogBytes("Error", b);
             // UNI-INIT-1
             assertWithMsg(false, "initialize() should not revert when it is passed valid parameters (tick spacing, price, fee, pool key,  non-existing poo)");
         }

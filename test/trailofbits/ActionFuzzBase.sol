@@ -118,7 +118,7 @@ contract ActionFuzzBase is V4StateMachine, ShadowAccounting, ScriptBase {
         _clearTransientRemittances();
         emit LogString("pool key");
         if(DeployedPools.length > 0) {
-            emit LogBytes(abi.encode(DeployedPools[0].toId()));
+            emit LogBytes("poolId", abi.encode(DeployedPools[0].toId()));
         }
     }
 

@@ -1,0 +1,58 @@
+[
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 0,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0xe41b2dca0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000529fb800000000000000000000000069163c85c8a9806cddc06aa09b687cf8a08e5e2600000000000000000000000000000000000000000000000000000000000ed72cffffffffffffffffffffffffffffffffffffffffffffffffffffffffff800021fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000002ae93124da11a4fd0d679d7e100ed2b7a6ca64103a09b67ea5b62372855def8fe8b7b518b1ef09d00b2cb6135c1d9599",
+   "dataAbiValues": {
+    "methodSignature": "addInitializeAndAddLiquidityAndSettle(uint8,uint8,int24,uint160,uint24,int24,int24,int128,uint256)",
+    "inputValues": [
+     "0",
+     "12",
+     "5414840",
+     "599939919592307231952983514899332795751788863014",
+     "972588",
+     "-8388575",
+     "-1048576",
+     "57038377748778573960856457717536969399",
+     "75441526584013388395069013841096166873457182899613497430755175948149510215065"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 24,
+  "blockTimestampDelay": 456
+ },
+ {
+  "call": {
+   "from": "0x0000000000000000000000000000000000010000",
+   "to": "0xa647ff3c36cfab592509e13860ab8c4f28781a66",
+   "nonce": 1,
+   "value": "0x0",
+   "gasLimit": 12500000,
+   "gasPrice": "0x1",
+   "gasFeeCap": "0x0",
+   "gasTipCap": "0x0",
+   "data": "0x75bc999a000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000000000980000000000000000000000000000000000000000000000000000000000a15d7b",
+   "dataAbiValues": {
+    "methodSignature": "addTargetedPoolReadyToOverflow(uint8,uint8,uint24)",
+    "inputValues": [
+     "100",
+     "152",
+     "10575227"
+    ]
+   },
+   "AccessList": null,
+   "SkipAccountChecks": false
+  },
+  "blockNumberDelay": 15,
+  "blockTimestampDelay": 303085
+ }
+]

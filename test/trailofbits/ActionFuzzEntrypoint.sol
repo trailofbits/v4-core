@@ -5,6 +5,7 @@ import {IHooks} from "src/interfaces/IHooks.sol";
 import {IPoolManager} from "src/interfaces/IPoolManager.sol";
 import {Hooks} from "src/libraries/Hooks.sol";
 import {TickMath} from "src/libraries/TickMath.sol";
+import {Position} from "src/libraries/Position.sol";
 import {Deployers} from "test/utils/Deployers.sol";
 import {StateLibrary} from "src/libraries/StateLibrary.sol";
 import {TransientStateLibrary} from "src/libraries/TransientStateLibrary.sol";
@@ -182,7 +183,13 @@ contract ActionFuzzEntrypoint is
             liqDelta = -liqDelta;
         }
         // concentrate the liquidity on 0,1
-        addInitializeAndAddLiquidityAndSettle(currency1I, currency2I, 1, 79228162514264337593543950336, fee, 0, 1, liqDelta, 0);
+        try this.addInitializeAndAddLiquidityAndSettle(currency1I, currency2I, 1, 79228162514264337593543950336, fee, 0, 1, liqDelta, 0) {}
+        catch (bytes memory err) {
+            bytes4 selector = bytes4(err);
+            if (selector == Position.CannotUpdateEmptyPosition.selector) {
+                assert(false);
+            }
+        }
     }
 
     /// @notice Creates a pool of highly concentrated liquidity with feeGrowthGlobal values that are close to overflowing

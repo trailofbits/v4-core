@@ -1,0 +1,2081 @@
+<html lang=en>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reversion Report</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 1px;
+            padding-left: 4px;
+            padding-right: 4px;
+            white-space: nowrap;
+        }
+        .table-grid{
+            display: grid;
+            grid-template-columns: 1fr;
+            width: max-content;
+        }
+        .table-grid th.col-name {
+            width: 10%;
+        }
+        .table-grid th.col-reason {
+            width: 40%;
+        }
+        .table-grid th.col-count {
+            width: 6%;
+        }
+        .table-grid th.col-pct-attrib {
+            width: 13%;
+        }
+        .table-grid th.col-pct-attrib2 {
+            width: 13%;
+        }
+        .table-grid th.col-pct-change {
+            width: 23%;
+        }
+        .numericdata {
+            text-align: center;
+        }
+        hr {
+            width: 100%;
+        }
+        svg{
+            vertical-align: middle;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<svg style="display: none;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="notstatsig" viewBox="0 0 24 24">
+    <title>Not enough samples for statistical significance</title>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-5.009c0-.867.659-1.491 1.491-1.491.85 0 1.509.624 1.509 1.491 0 .867-.659 1.509-1.509 1.509-.832 0-1.491-.642-1.491-1.509zM11.172 6a.5.5 0 0 0-.499.522l.306 7a.5.5 0 0 0 .5.478h1.043a.5.5 0 0 0 .5-.478l.305-7a.5.5 0 0 0-.5-.522h-1.655z" fill="#000000"/>
+    </symbol>
+</svg>
+
+<header>
+    <h1>Reversion Report</h1>
+</header>
+<hr/>
+
+<h2>Summary</h2>
+<table>
+    <tr>
+        <th>Function</th>
+        <th>Call Count</th>
+        <th>Revert Count</th>
+        <th>Percent Reverted</th>
+        <th>Change vs. Prev Run</th>
+        <th>Percent Reverted Prev</th>
+    </tr>
+
+    <tr>
+        <td><a href="#addBurn">addBurn</a></td>
+        <td class="numericdata">7</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addBurnAndRunActions">addBurnAndRunActions</a></td>
+        <td class="numericdata">14632</td>
+        <td class="numericdata">14446</td>
+        <td class="numericdata">98.7%</td>
+        <td class="numericdata">Increased by 0.3%</td>
+        <td class="numericdata">98.5%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addClear">addClear</a></td>
+        <td class="numericdata">17</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addCollectProtocolFees">addCollectProtocolFees</a></td>
+        <td class="numericdata">85</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addDonate">addDonate</a></td>
+        <td class="numericdata">14777</td>
+        <td class="numericdata">8826</td>
+        <td class="numericdata">59.7%</td>
+        <td class="numericdata">Increased by 0.4%</td>
+        <td class="numericdata">59.5%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addDonateAndSettle">addDonateAndSettle</a></td>
+        <td class="numericdata">14715</td>
+        <td class="numericdata">14648</td>
+        <td class="numericdata">99.5%</td>
+        <td class="numericdata">Increased by 0.7%</td>
+        <td class="numericdata">98.9%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addInitialize">addInitialize</a></td>
+        <td class="numericdata">14652</td>
+        <td class="numericdata">2632</td>
+        <td class="numericdata">18.0%</td>
+        <td class="numericdata">Increased by 3.5%</td>
+        <td class="numericdata">17.4%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addInitializeAndAddLiquidity">addInitializeAndAddLiquidity</a></td>
+        <td class="numericdata">24759</td>
+        <td class="numericdata">2795</td>
+        <td class="numericdata">11.3%</td>
+        <td class="numericdata">Decreased by 37.0%</td>
+        <td class="numericdata">17.9%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addInitializeAndAddLiquidityAndSettle">addInitializeAndAddLiquidityAndSettle</a></td>
+        <td class="numericdata">14855</td>
+        <td class="numericdata">14822</td>
+        <td class="numericdata">99.8%</td>
+        <td class="numericdata">Increased by 0.1%</td>
+        <td class="numericdata">99.7%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addInitializeUnconstrained">addInitializeUnconstrained</a></td>
+        <td class="numericdata">14675</td>
+        <td class="numericdata">2615</td>
+        <td class="numericdata">17.8%</td>
+        <td class="numericdata">Increased by 10.3%</td>
+        <td class="numericdata">16.2%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addMint">addMint</a></td>
+        <td class="numericdata">10</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addModifyPosition">addModifyPosition</a></td>
+        <td class="numericdata">14685</td>
+        <td class="numericdata">8827</td>
+        <td class="numericdata">60.1%</td>
+        <td class="numericdata">Increased by 1.2%</td>
+        <td class="numericdata">59.4%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addModifyPositionAndRunActions">addModifyPositionAndRunActions</a></td>
+        <td class="numericdata">135</td>
+        <td class="numericdata">85</td>
+        <td class="numericdata">63.0%</td>
+        <td class="numericdata">Increased by 2.5%</td>
+        <td class="numericdata">61.4%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSetNewProtocolFee">addSetNewProtocolFee</a></td>
+        <td class="numericdata">14680</td>
+        <td class="numericdata">8866</td>
+        <td class="numericdata">60.4%</td>
+        <td class="numericdata">Decreased by 0.3%</td>
+        <td class="numericdata">60.6%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSettle">addSettle</a></td>
+        <td class="numericdata">11303</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%</td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSettleFor">addSettleFor</a></td>
+        <td class="numericdata">21</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSettleNative">addSettleNative</a></td>
+        <td class="numericdata">12</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addShortcutSettle">addShortcutSettle</a></td>
+        <td class="numericdata">15070</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%</td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSwap">addSwap</a></td>
+        <td class="numericdata">14396</td>
+        <td class="numericdata">8747</td>
+        <td class="numericdata">60.8%</td>
+        <td class="numericdata">Decreased by 1.4%</td>
+        <td class="numericdata">61.6%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSwapAndRunActions">addSwapAndRunActions</a></td>
+        <td class="numericdata">14956</td>
+        <td class="numericdata">12833</td>
+        <td class="numericdata">85.8%</td>
+        <td class="numericdata">Increased by 1.2%</td>
+        <td class="numericdata">84.8%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSwapInSwapOut">addSwapInSwapOut</a></td>
+        <td class="numericdata">14915</td>
+        <td class="numericdata">8998</td>
+        <td class="numericdata">60.3%</td>
+        <td class="numericdata">Increased by 1.8%</td>
+        <td class="numericdata">59.3%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addSync">addSync</a></td>
+        <td class="numericdata">106</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%</td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addTake">addTake</a></td>
+        <td class="numericdata">71</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addTargetedPool">addTargetedPool</a></td>
+        <td class="numericdata">42701</td>
+        <td class="numericdata">27721</td>
+        <td class="numericdata">64.9%</td>
+        <td class="numericdata">Decreased by 16.5%</td>
+        <td class="numericdata">77.8%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addTargetedPoolReadyToOverflow">addTargetedPoolReadyToOverflow</a></td>
+        <td class="numericdata">20767</td>
+        <td class="numericdata">13956</td>
+        <td class="numericdata">67.2%</td>
+        <td class="numericdata">Increased by 26.0%</td>
+        <td class="numericdata">53.3%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#addTransferFrom">addTransferFrom</a></td>
+        <td class="numericdata">74</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#prepareNewLock">prepareNewLock</a></td>
+        <td class="numericdata">23</td>
+        <td class="numericdata">0</td>
+        <td class="numericdata">0.0%<svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">0.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#routerCallback">routerCallback</a></td>
+        <td class="numericdata">14741</td>
+        <td class="numericdata">14741</td>
+        <td class="numericdata">100.0%</td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">100.0%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#runActions">runActions</a></td>
+        <td class="numericdata">14881</td>
+        <td class="numericdata">11427</td>
+        <td class="numericdata">76.8%</td>
+        <td class="numericdata">Decreased by 0.4%</td>
+        <td class="numericdata">77.1%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#runActionsWithShortcutSettle">runActionsWithShortcutSettle</a></td>
+        <td class="numericdata">39017</td>
+        <td class="numericdata">4076</td>
+        <td class="numericdata">10.4%</td>
+        <td class="numericdata">Increased by 1.3%</td>
+        <td class="numericdata">10.3%</td>
+
+    </tr>
+
+    <tr>
+        <td><a href="#updatePoolDynamicLpFee">updatePoolDynamicLpFee</a></td>
+        <td class="numericdata">14701</td>
+        <td class="numericdata">14701</td>
+        <td class="numericdata">100.0%</td>
+        <td class="numericdata">No Change</td>
+        <td class="numericdata">100.0%</td>
+
+    </tr>
+
+</table>
+
+<h2>Individual Functions</h2>
+<p>Be aware that reversions may come from call frames or contracts below the top level call.</p>
+<div class="table-grid">
+
+    <h3 id="addBurn">addBurn</h3>
+    <p>
+    Total Calls: <strong>7</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addBurn
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addBurnAndRunActions">addBurnAndRunActions</h3>
+    <p>
+    Total Calls: <strong>14632</strong> <br>
+    Total Reverts: <strong>14446</strong> <br>
+    Percentage of calls that reverted: <strong>98.7%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 0.3%</strong> <br>
+    Percentage of calls that reverted last run: <strong>98.5%</strong> <br>
+    Revert Details for addBurnAndRunActions
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">62</td>
+            <td class="numericdata">0.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 31.4%</td>
+            <td class="numericdata">0.6%</td>
+        </tr>
+        
+        <tr>
+            <td>MustClearExactPositiveDelta</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.0%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">231</td>
+            <td class="numericdata">1.6% </td>
+            <td class="numericdata">Decreased by 2.8%</td>
+            <td class="numericdata">1.6%</td>
+        </tr>
+        
+        <tr>
+            <td>NonZeroNativeValue</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.0%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">61</td>
+            <td class="numericdata">0.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 1.3%</td>
+            <td class="numericdata">0.4%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">341</td>
+            <td class="numericdata">2.4% </td>
+            <td class="numericdata">Increased by 35.4%</td>
+            <td class="numericdata">1.7%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">8894</td>
+            <td class="numericdata">61.6% </td>
+            <td class="numericdata">Increased by 0.8%</td>
+            <td class="numericdata">61.1%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">15</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 5.2%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">642</td>
+            <td class="numericdata">4.4% </td>
+            <td class="numericdata">Decreased by 17.1%</td>
+            <td class="numericdata">5.4%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">534</td>
+            <td class="numericdata">3.7% </td>
+            <td class="numericdata">Increased by 2.1%</td>
+            <td class="numericdata">3.6%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">5</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">3625</td>
+            <td class="numericdata">25.1% </td>
+            <td class="numericdata">Increased by 0.3%</td>
+            <td class="numericdata">25.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">34</td>
+            <td class="numericdata">0.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 20.5%</td>
+            <td class="numericdata">0.3%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addClear">addClear</h3>
+    <p>
+    Total Calls: <strong>17</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addClear
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addCollectProtocolFees">addCollectProtocolFees</h3>
+    <p>
+    Total Calls: <strong>85</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addCollectProtocolFees
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addDonate">addDonate</h3>
+    <p>
+    Total Calls: <strong>14777</strong> <br>
+    Total Reverts: <strong>8826</strong> <br>
+    Percentage of calls that reverted: <strong>59.7%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 0.4%</strong> <br>
+    Percentage of calls that reverted last run: <strong>59.5%</strong> <br>
+    Revert Details for addDonate
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8826</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addDonateAndSettle">addDonateAndSettle</h3>
+    <p>
+    Total Calls: <strong>14715</strong> <br>
+    Total Reverts: <strong>14648</strong> <br>
+    Percentage of calls that reverted: <strong>99.5%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 0.7%</strong> <br>
+    Percentage of calls that reverted last run: <strong>98.9%</strong> <br>
+    Revert Details for addDonateAndSettle
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">3</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 78.6%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">66</td>
+            <td class="numericdata">0.5% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.0%</td>
+            <td class="numericdata">0.4%</td>
+        </tr>
+        
+        <tr>
+            <td>InvalidFeeForExactOut</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">1672</td>
+            <td class="numericdata">11.4% </td>
+            <td class="numericdata">Increased by 7.0%</td>
+            <td class="numericdata">10.7%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">64</td>
+            <td class="numericdata">0.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 14.3%</td>
+            <td class="numericdata">0.5%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">335</td>
+            <td class="numericdata">2.3% </td>
+            <td class="numericdata">Increased by 21.7%</td>
+            <td class="numericdata">1.9%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">1116</td>
+            <td class="numericdata">7.6% </td>
+            <td class="numericdata">Decreased by 2.0%</td>
+            <td class="numericdata">7.8%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">8</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 57.1%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">674</td>
+            <td class="numericdata">4.6% </td>
+            <td class="numericdata">Decreased by 14.5%</td>
+            <td class="numericdata">5.4%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">520</td>
+            <td class="numericdata">3.5% </td>
+            <td class="numericdata">Increased by 7.1%</td>
+            <td class="numericdata">3.3%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">10165</td>
+            <td class="numericdata">69.4% </td>
+            <td class="numericdata">Decreased by 0.5%</td>
+            <td class="numericdata">69.7%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">22</td>
+            <td class="numericdata">0.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 135.7%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addInitialize">addInitialize</h3>
+    <p>
+    Total Calls: <strong>14652</strong> <br>
+    Total Reverts: <strong>2632</strong> <br>
+    Percentage of calls that reverted: <strong>18.0%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 3.5%</strong> <br>
+    Percentage of calls that reverted last run: <strong>17.4%</strong> <br>
+    Revert Details for addInitialize
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">2632</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addInitializeAndAddLiquidity">addInitializeAndAddLiquidity</h3>
+    <p>
+    Total Calls: <strong>24759</strong> <br>
+    Total Reverts: <strong>2795</strong> <br>
+    Percentage of calls that reverted: <strong>11.3%</strong> <br>
+    Change in revert % since last run: <strong>Decreased by 37.0%</strong> <br>
+    Percentage of calls that reverted last run: <strong>17.9%</strong> <br>
+    Revert Details for addInitializeAndAddLiquidity
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">2795</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addInitializeAndAddLiquidityAndSettle">addInitializeAndAddLiquidityAndSettle</h3>
+    <p>
+    Total Calls: <strong>14855</strong> <br>
+    Total Reverts: <strong>14822</strong> <br>
+    Percentage of calls that reverted: <strong>99.8%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 0.1%</strong> <br>
+    Percentage of calls that reverted last run: <strong>99.7%</strong> <br>
+    Revert Details for addInitializeAndAddLiquidityAndSettle
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">3</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 78.6%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">311</td>
+            <td class="numericdata">2.1% </td>
+            <td class="numericdata">Increased by 0.9%</td>
+            <td class="numericdata">2.1%</td>
+        </tr>
+        
+        <tr>
+            <td>CheckParameters</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 78.6%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">187</td>
+            <td class="numericdata">1.3% </td>
+            <td class="numericdata">Increased by 2.7%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">39</td>
+            <td class="numericdata">0.3% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 24.1%</td>
+            <td class="numericdata">0.3%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">246</td>
+            <td class="numericdata">1.7% </td>
+            <td class="numericdata">Decreased by 15.0%</td>
+            <td class="numericdata">2.0%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">142</td>
+            <td class="numericdata">1.0% </td>
+            <td class="numericdata">Decreased by 1.9%</td>
+            <td class="numericdata">1.0%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">8</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">3230</td>
+            <td class="numericdata">21.8% </td>
+            <td class="numericdata">Increased by 4.0%</td>
+            <td class="numericdata">21.0%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">2572</td>
+            <td class="numericdata">17.4% </td>
+            <td class="numericdata">Decreased by 2.9%</td>
+            <td class="numericdata">17.9%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">14</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 25.1%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">5512</td>
+            <td class="numericdata">37.2% </td>
+            <td class="numericdata">Increased by 1.5%</td>
+            <td class="numericdata">36.6%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">2557</td>
+            <td class="numericdata">17.3% </td>
+            <td class="numericdata">Decreased by 2.6%</td>
+            <td class="numericdata">17.7%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addInitializeUnconstrained">addInitializeUnconstrained</h3>
+    <p>
+    Total Calls: <strong>14675</strong> <br>
+    Total Reverts: <strong>2615</strong> <br>
+    Percentage of calls that reverted: <strong>17.8%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 10.3%</strong> <br>
+    Percentage of calls that reverted last run: <strong>16.2%</strong> <br>
+    Revert Details for addInitializeUnconstrained
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">2615</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addMint">addMint</h3>
+    <p>
+    Total Calls: <strong>10</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addMint
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addModifyPosition">addModifyPosition</h3>
+    <p>
+    Total Calls: <strong>14685</strong> <br>
+    Total Reverts: <strong>8827</strong> <br>
+    Percentage of calls that reverted: <strong>60.1%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 1.2%</strong> <br>
+    Percentage of calls that reverted last run: <strong>59.4%</strong> <br>
+    Revert Details for addModifyPosition
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8827</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addModifyPositionAndRunActions">addModifyPositionAndRunActions</h3>
+    <p>
+    Total Calls: <strong>135</strong> <br>
+    Total Reverts: <strong>85</strong> <br>
+    Percentage of calls that reverted: <strong>63.0%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 2.5%</strong> <br>
+    Percentage of calls that reverted last run: <strong>61.4%</strong> <br>
+    Revert Details for addModifyPositionAndRunActions
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">2.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">2.3%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">1.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+        <tr>
+            <td>MustClearExactPositiveDelta</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">1.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">2.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">2.3%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">9</td>
+            <td class="numericdata">10.6% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">10.5%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">2.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">2.3%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">1.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">67</td>
+            <td class="numericdata">78.8% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 1.2%</td>
+            <td class="numericdata">77.9%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSetNewProtocolFee">addSetNewProtocolFee</h3>
+    <p>
+    Total Calls: <strong>14680</strong> <br>
+    Total Reverts: <strong>8866</strong> <br>
+    Percentage of calls that reverted: <strong>60.4%</strong> <br>
+    Change in revert % since last run: <strong>Decreased by 0.3%</strong> <br>
+    Percentage of calls that reverted last run: <strong>60.6%</strong> <br>
+    Revert Details for addSetNewProtocolFee
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8866</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSettle">addSettle</h3>
+    <p>
+    Total Calls: <strong>11303</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addSettle
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSettleFor">addSettleFor</h3>
+    <p>
+    Total Calls: <strong>21</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addSettleFor
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSettleNative">addSettleNative</h3>
+    <p>
+    Total Calls: <strong>12</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addSettleNative
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addShortcutSettle">addShortcutSettle</h3>
+    <p>
+    Total Calls: <strong>15070</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addShortcutSettle
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSwap">addSwap</h3>
+    <p>
+    Total Calls: <strong>14396</strong> <br>
+    Total Reverts: <strong>8747</strong> <br>
+    Percentage of calls that reverted: <strong>60.8%</strong> <br>
+    Change in revert % since last run: <strong>Decreased by 1.4%</strong> <br>
+    Percentage of calls that reverted last run: <strong>61.6%</strong> <br>
+    Revert Details for addSwap
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8747</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSwapAndRunActions">addSwapAndRunActions</h3>
+    <p>
+    Total Calls: <strong>14956</strong> <br>
+    Total Reverts: <strong>12833</strong> <br>
+    Percentage of calls that reverted: <strong>85.8%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 1.2%</strong> <br>
+    Percentage of calls that reverted last run: <strong>84.8%</strong> <br>
+    Revert Details for addSwapAndRunActions
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">10</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 78.8%</td>
+            <td class="numericdata">0.4%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">61</td>
+            <td class="numericdata">0.5% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 38.5%</td>
+            <td class="numericdata">0.8%</td>
+        </tr>
+        
+        <tr>
+            <td>InvalidFeeForExactOut</td>
+            <td class="numericdata">6</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 74.6%</td>
+            <td class="numericdata">0.2%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">257</td>
+            <td class="numericdata">2.0% </td>
+            <td class="numericdata">Increased by 18.3%</td>
+            <td class="numericdata">1.7%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">369</td>
+            <td class="numericdata">2.9% </td>
+            <td class="numericdata">Decreased by 2.3%</td>
+            <td class="numericdata">2.9%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">318</td>
+            <td class="numericdata">2.5% </td>
+            <td class="numericdata">Decreased by 2.4%</td>
+            <td class="numericdata">2.5%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">171</td>
+            <td class="numericdata">1.3% </td>
+            <td class="numericdata">Decreased by 9.5%</td>
+            <td class="numericdata">1.5%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">41</td>
+            <td class="numericdata">0.3% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 13.2%</td>
+            <td class="numericdata">0.4%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">690</td>
+            <td class="numericdata">5.4% </td>
+            <td class="numericdata">Increased by 4.4%</td>
+            <td class="numericdata">5.2%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">508</td>
+            <td class="numericdata">4.0% </td>
+            <td class="numericdata">Decreased by 5.6%</td>
+            <td class="numericdata">4.2%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">3</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">10320</td>
+            <td class="numericdata">80.4% </td>
+            <td class="numericdata">Increased by 1.1%</td>
+            <td class="numericdata">79.5%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">79</td>
+            <td class="numericdata">0.6% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 20.3%</td>
+            <td class="numericdata">0.8%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSwapInSwapOut">addSwapInSwapOut</h3>
+    <p>
+    Total Calls: <strong>14915</strong> <br>
+    Total Reverts: <strong>8998</strong> <br>
+    Percentage of calls that reverted: <strong>60.3%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 1.8%</strong> <br>
+    Percentage of calls that reverted last run: <strong>59.3%</strong> <br>
+    Revert Details for addSwapInSwapOut
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8998</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addSync">addSync</h3>
+    <p>
+    Total Calls: <strong>106</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addSync
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addTake">addTake</h3>
+    <p>
+    Total Calls: <strong>71</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addTake
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addTargetedPool">addTargetedPool</h3>
+    <p>
+    Total Calls: <strong>42701</strong> <br>
+    Total Reverts: <strong>27721</strong> <br>
+    Percentage of calls that reverted: <strong>64.9%</strong> <br>
+    Change in revert % since last run: <strong>Decreased by 16.5%</strong> <br>
+    Percentage of calls that reverted last run: <strong>77.8%</strong> <br>
+    Revert Details for addTargetedPool
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">3.5%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">1.8%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">0.5%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">2.0%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">1.2%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">53.0%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">4.3%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">6</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 99.8%</td>
+            <td class="numericdata">10.2%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: assertion failed</td>
+            <td class="numericdata">27715</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No prev. data</td>
+            <td class="numericdata">No prev. data</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">0</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 100.0%</td>
+            <td class="numericdata">23.4%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addTargetedPoolReadyToOverflow">addTargetedPoolReadyToOverflow</h3>
+    <p>
+    Total Calls: <strong>20767</strong> <br>
+    Total Reverts: <strong>13956</strong> <br>
+    Percentage of calls that reverted: <strong>67.2%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 26.0%</strong> <br>
+    Percentage of calls that reverted last run: <strong>53.3%</strong> <br>
+    Revert Details for addTargetedPoolReadyToOverflow
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">3</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 92.7%</td>
+            <td class="numericdata">0.3%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">84</td>
+            <td class="numericdata">0.6% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 14.4%</td>
+            <td class="numericdata">0.7%</td>
+        </tr>
+        
+        <tr>
+            <td>CheckParameters</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 87.8%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">518</td>
+            <td class="numericdata">3.7% </td>
+            <td class="numericdata">Increased by 26.7%</td>
+            <td class="numericdata">2.9%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">69</td>
+            <td class="numericdata">0.5% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 6.2%</td>
+            <td class="numericdata">0.5%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">355</td>
+            <td class="numericdata">2.5% </td>
+            <td class="numericdata">Decreased by 38.8%</td>
+            <td class="numericdata">4.2%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">166</td>
+            <td class="numericdata">1.2% </td>
+            <td class="numericdata">Decreased by 32.3%</td>
+            <td class="numericdata">1.8%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">9</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 45.0%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">680</td>
+            <td class="numericdata">4.9% </td>
+            <td class="numericdata">Decreased by 27.7%</td>
+            <td class="numericdata">6.7%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">547</td>
+            <td class="numericdata">3.9% </td>
+            <td class="numericdata">Decreased by 18.4%</td>
+            <td class="numericdata">4.8%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">2791</td>
+            <td class="numericdata">20.0% </td>
+            <td class="numericdata">Increased by 57.3%</td>
+            <td class="numericdata">12.7%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: assertion failed</td>
+            <td class="numericdata">5891</td>
+            <td class="numericdata">42.2% </td>
+            <td class="numericdata">No prev. data</td>
+            <td class="numericdata">No prev. data</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">2840</td>
+            <td class="numericdata">20.3% </td>
+            <td class="numericdata">Decreased by 68.8%</td>
+            <td class="numericdata">65.2%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="addTransferFrom">addTransferFrom</h3>
+    <p>
+    Total Calls: <strong>74</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for addTransferFrom
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="prepareNewLock">prepareNewLock</h3>
+    <p>
+    Total Calls: <strong>23</strong> <br>
+    Total Reverts: <strong>0</strong> <br>
+    Percentage of calls that reverted: <strong>0.0%</strong> <svg width="16px" height="16px"><use href="#notstatsig" /></svg><br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>0.0%</strong> <br>
+    Revert Details for prepareNewLock
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="routerCallback">routerCallback</h3>
+    <p>
+    Total Calls: <strong>14741</strong> <br>
+    Total Reverts: <strong>14741</strong> <br>
+    Percentage of calls that reverted: <strong>100.0%</strong> <br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>100.0%</strong> <br>
+    Revert Details for routerCallback
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">14741</td>
+            <td class="numericdata">100.0% </td>
+            <td class="numericdata">No Change</td>
+            <td class="numericdata">100.0%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="runActions">runActions</h3>
+    <p>
+    Total Calls: <strong>14881</strong> <br>
+    Total Reverts: <strong>11427</strong> <br>
+    Percentage of calls that reverted: <strong>76.8%</strong> <br>
+    Change in revert % since last run: <strong>Decreased by 0.4%</strong> <br>
+    Percentage of calls that reverted last run: <strong>77.1%</strong> <br>
+    Revert Details for runActions
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">94</td>
+            <td class="numericdata">0.8% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 19.4%</td>
+            <td class="numericdata">0.7%</td>
+        </tr>
+        
+        <tr>
+            <td>CheckParameters</td>
+            <td class="numericdata">7856</td>
+            <td class="numericdata">68.7% </td>
+            <td class="numericdata">Increased by 2.1%</td>
+            <td class="numericdata">67.3%</td>
+        </tr>
+        
+        <tr>
+            <td>CurrencyNotSettled</td>
+            <td class="numericdata">82</td>
+            <td class="numericdata">0.7% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 18.0%</td>
+            <td class="numericdata">0.6%</td>
+        </tr>
+        
+        <tr>
+            <td>InvalidFeeForExactOut</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">227</td>
+            <td class="numericdata">2.0% </td>
+            <td class="numericdata">Decreased by 3.9%</td>
+            <td class="numericdata">2.1%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">80</td>
+            <td class="numericdata">0.7% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 23.4%</td>
+            <td class="numericdata">0.6%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">342</td>
+            <td class="numericdata">3.0% </td>
+            <td class="numericdata">Increased by 4.0%</td>
+            <td class="numericdata">2.9%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">183</td>
+            <td class="numericdata">1.6% </td>
+            <td class="numericdata">Decreased by 10.2%</td>
+            <td class="numericdata">1.8%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">5</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 64.0%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">691</td>
+            <td class="numericdata">6.0% </td>
+            <td class="numericdata">Decreased by 13.8%</td>
+            <td class="numericdata">7.0%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">557</td>
+            <td class="numericdata">4.9% </td>
+            <td class="numericdata">Decreased by 4.6%</td>
+            <td class="numericdata">5.1%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">3</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by &#43;Inf%</td>
+            <td class="numericdata">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">1278</td>
+            <td class="numericdata">11.2% </td>
+            <td class="numericdata">Decreased by 2.8%</td>
+            <td class="numericdata">11.5%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">28</td>
+            <td class="numericdata">0.2% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 24.4%</td>
+            <td class="numericdata">0.3%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="runActionsWithShortcutSettle">runActionsWithShortcutSettle</h3>
+    <p>
+    Total Calls: <strong>39017</strong> <br>
+    Total Reverts: <strong>4076</strong> <br>
+    Percentage of calls that reverted: <strong>10.4%</strong> <br>
+    Change in revert % since last run: <strong>Increased by 1.3%</strong> <br>
+    Percentage of calls that reverted last run: <strong>10.3%</strong> <br>
+    Revert Details for runActionsWithShortcutSettle
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>AlreadySynced</td>
+            <td class="numericdata">2</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.2%</td>
+            <td class="numericdata">0.2%</td>
+        </tr>
+        
+        <tr>
+            <td>CannotUpdateEmptyPosition</td>
+            <td class="numericdata">80</td>
+            <td class="numericdata">2.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 38.9%</td>
+            <td class="numericdata">1.4%</td>
+        </tr>
+        
+        <tr>
+            <td>CheckParameters</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.2%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>ERC20TransferFailed</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.2%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>NativeTransferFailed</td>
+            <td class="numericdata">1</td>
+            <td class="numericdata">0.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 79.2%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>NoLiquidityToReceiveFees</td>
+            <td class="numericdata">300</td>
+            <td class="numericdata">7.4% </td>
+            <td class="numericdata">Increased by 9.6%</td>
+            <td class="numericdata">6.7%</td>
+        </tr>
+        
+        <tr>
+            <td>PriceLimitAlreadyExceeded</td>
+            <td class="numericdata">93</td>
+            <td class="numericdata">2.3% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 19.3%</td>
+            <td class="numericdata">2.8%</td>
+        </tr>
+        
+        <tr>
+            <td>ProtocolFeeTooLarge</td>
+            <td class="numericdata">434</td>
+            <td class="numericdata">10.6% </td>
+            <td class="numericdata">Increased by 25.6%</td>
+            <td class="numericdata">8.5%</td>
+        </tr>
+        
+        <tr>
+            <td>SafeCastOverflow</td>
+            <td class="numericdata">228</td>
+            <td class="numericdata">5.6% </td>
+            <td class="numericdata">Increased by 3.2%</td>
+            <td class="numericdata">5.4%</td>
+        </tr>
+        
+        <tr>
+            <td>SwapAmountCannotBeZero</td>
+            <td class="numericdata">15</td>
+            <td class="numericdata">0.4% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Increased by 56.2%</td>
+            <td class="numericdata">0.2%</td>
+        </tr>
+        
+        <tr>
+            <td>TickLiquidityOverflow</td>
+            <td class="numericdata">826</td>
+            <td class="numericdata">20.3% </td>
+            <td class="numericdata">Decreased by 2.2%</td>
+            <td class="numericdata">20.7%</td>
+        </tr>
+        
+        <tr>
+            <td>TickMisaligned</td>
+            <td class="numericdata">590</td>
+            <td class="numericdata">14.5% </td>
+            <td class="numericdata">Increased by 8.8%</td>
+            <td class="numericdata">13.3%</td>
+        </tr>
+        
+        <tr>
+            <td>TicksMisordered</td>
+            <td class="numericdata">4</td>
+            <td class="numericdata">0.1% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 16.7%</td>
+            <td class="numericdata">0.1%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">1460</td>
+            <td class="numericdata">35.8% </td>
+            <td class="numericdata">Decreased by 7.8%</td>
+            <td class="numericdata">38.9%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: compiler inserted panic</td>
+            <td class="numericdata">41</td>
+            <td class="numericdata">1.0% <svg width="16px" height="16px"><use href="#notstatsig" /></svg></td>
+            <td class="numericdata">Decreased by 22.4%</td>
+            <td class="numericdata">1.3%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+    <h3 id="updatePoolDynamicLpFee">updatePoolDynamicLpFee</h3>
+    <p>
+    Total Calls: <strong>14701</strong> <br>
+    Total Reverts: <strong>14701</strong> <br>
+    Percentage of calls that reverted: <strong>100.0%</strong> <br>
+    Change in revert % since last run: <strong>No Change</strong> <br>
+    Percentage of calls that reverted last run: <strong>100.0%</strong> <br>
+    Revert Details for updatePoolDynamicLpFee
+    </p>
+    <table>
+        <tr>
+            <th class="col-reason">Revert Reason</th>
+            <th class="col-count">Count</th>
+            <th class="col-pct-attrib2">Percent Attributed</th>
+            <th class="col-pct-change">Change vs. Prev Run</th>
+            <th class="col-pct-attrib">Percent Attributed Prev.</th>
+        </tr>
+        
+        <tr>
+            <td>UnauthorizedDynamicLPFeeUpdate</td>
+            <td class="numericdata">5819</td>
+            <td class="numericdata">39.6% </td>
+            <td class="numericdata">Decreased by 3.7%</td>
+            <td class="numericdata">41.1%</td>
+        </tr>
+        
+        <tr>
+            <td>panic: arithmetic underflow</td>
+            <td class="numericdata">8882</td>
+            <td class="numericdata">60.4% </td>
+            <td class="numericdata">Increased by 2.6%</td>
+            <td class="numericdata">58.9%</td>
+        </tr>
+        
+    </table>
+    <hr/>
+
+</div>
+
+<script>
+    
+    const collapsibleHeaders = document.getElementsByClassName("collapsible");
+    let i;
+    for (i = 0; i < collapsibleHeaders.length; i++) {
+        collapsibleHeaders[i].addEventListener("click", function() {
+            this.classList.toggle("collapsible-active");
+
+        });
+    }
+
+    
+    if (collapsibleHeaders.length === 1 && !collapsibleHeaders.className.contains("collapsible-active")) {
+        collapsibleHeaders[0].click();
+    }
+</script>
+
+<hr/>
+<footer>
+    <center>
+        Report generated by medusa
+        <br />
+        2024-09-10 20:08:13.240412 &#43;0000 UTC
+        <br />
+        <a href="https://github.com/crytic/medusa">github.com/crytic/medusa</a>
+    </center>
+</footer>
+</body>
+</html>

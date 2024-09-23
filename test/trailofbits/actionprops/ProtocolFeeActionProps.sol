@@ -63,7 +63,7 @@ contract ProtocolFeeActionProps is ActionFuzzBase {
 
         try manager.collectProtocolFees(address(this), currency, feeToCollect) { }
         catch(bytes memory b) {
-            emit LogBytes(b);
+            emit LogBytes("error", b);
             // UNI-ACTION-6
             assertWithMsg(false, "collectProtocolFees must not revert on valid input");
         }
